@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name
+Bundle-SymbolicName: org.plugin.helloworld;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui
+Automatic-Module-Name: org.plugin.helloworld
+Bundle-RequiredExecutionEnvironment: JavaSE-16
+Export-Package: org.plugin.helloworld.handlers

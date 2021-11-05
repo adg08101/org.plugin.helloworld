@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.plugin.helloworld.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="org.plugin.helloworld.commands.category"
+            name="First Command"
+            id="org.plugin.helloworld.commands.sampleCommand">
+      </command>
+      <command
+            categoryId="org.plugin.helloworld.commands.category"
+            name="Second Command"
+            id="org.plugin.helloworld.commands.sampleCommandTwo">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.plugin.helloworld.handlers.SampleHandler"
+            commandId="org.plugin.helloworld.commands.sampleCommand">
+      </handler>
+      <handler
+            class="org.plugin.helloworld.handlers.SampleHandler"
+            commandId="org.plugin.helloworld.commands.sampleCommandTwo">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="org.plugin.helloworld.commands.sampleCommand"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+1">
+      </key>
+      <key
+            commandId="org.plugin.helloworld.commands.sampleCommandTwo"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+2">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="org.plugin.helloworld.menus.sampleMenu"
+               label="Plugin Example"
+               mnemonic="M">
+            <command
+                  commandId="org.plugin.helloworld.commands.sampleCommand"
+                  id="org.plugin.helloworld.menus.sampleCommand"
+                  mnemonic="S">
+            </command>
+            <command
+                  commandId="org.plugin.helloworld.commands.sampleCommandTwo"
+                  id="org.plugin.helloworld.menus.sampleCommand"
+                  mnemonic="D">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="org.plugin.helloworld.toolbars.sampleToolbar">
+            <command
+                  id="org.plugin.helloworld.toolbars.sampleCommand"
+                  commandId="org.plugin.helloworld.commands.sampleCommand"
+                  icon="icons/sample.png"
+                  tooltip="Say hello world">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
