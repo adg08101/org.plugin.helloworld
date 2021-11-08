@@ -48,9 +48,10 @@ public class SampleHandler extends AbstractHandler {
 		   	
 		   	StringSelection final_output = new StringSelection(text_with_comments);
 		   	cb.setContents(final_output, final_output);
-		   	delete_eat();
 		   	paste();
 		}
+		
+		paste();
 		
 		return null;
 	}
@@ -83,6 +84,25 @@ public class SampleHandler extends AbstractHandler {
 			robot.keyRelease(KeyEvent.VK_V);
 			robot.delay(100);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
+		} catch (AWTException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
+	public void call() {
+		Robot robot;
+		try {
+			robot = new Robot();
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.delay(100);
+			robot.keyPress(KeyEvent.VK_1);
+			robot.delay(100);
+			robot.keyRelease(KeyEvent.VK_1);
+			robot.delay(100);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			paste();
+			return;
 		} catch (AWTException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
